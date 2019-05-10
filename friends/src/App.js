@@ -14,15 +14,15 @@ class App extends React.Component{
   }
 
   componentDidMount() {
-    console.log('inside cdm')
+    // console.log('inside cdm')
     Axios.get('http://localhost:5000/friends')
       .then(res => {
-          console.log(res.data);
-          console.log('inside cdm then');
+          // console.log(res.data);
+          // console.log('inside cdm then');
           this.setState(() => ({ friends: res.data }));
         })
       .catch(err => console.log(err));
-    console.log('below fetch');
+    // console.log('below fetch');
   }
 
   postFriend = friend => {
@@ -32,8 +32,9 @@ class App extends React.Component{
 
   deleteFriend = id => {
     Axios
-    .delete(`http://localhost:5000/friends/${id}`)
-    .then(res => console.log(res))
+    .delete(`http://localhost:5000/friends/:${id}`)
+    // .then(res => console.log(res))
+    .catch(err => console.log(err))
   }
 
   render() {

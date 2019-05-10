@@ -47,7 +47,7 @@ class PostFriendForm extends React.Component {
                         value={this.state.friendInput.name}
                     />
                     <input
-                        type="text"
+                        type="number"
                         name="age"
                         placeholder="Age"
                         onChange={this.handleChange}
