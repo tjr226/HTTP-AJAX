@@ -3,6 +3,7 @@ import './App.css';
 import Axios from 'axios';
 import FriendDetails from './Components/friendDetails';
 import PostFriendForm from './Components/PostFriendForm';
+import UpdateFriendForm from './Components/UpdateFriendForm';
 
 class App extends React.Component{
   constructor(props) {
@@ -33,6 +34,15 @@ class App extends React.Component{
       this.setState({ friends: res.data});
     })
   }
+
+  putFriend = (friend, id) => {
+    Axios
+    .put(`http://localhost:5000/friends/${id}`, friend)
+    .then(res => {
+      console.log(res);
+      this.setState({ friends: res.data })
+    })
+  }
   
 
   deleteFriend = id => {
@@ -51,6 +61,7 @@ class App extends React.Component{
       <div className="App">
         {this.state.friends.map(friend => <FriendDetails key={friend.id} friend={friend} deleteFriend={this.deleteFriend} /> )}
         <PostFriendForm postFriend={this.postFriend} />
+        {/* <UpdateFriendForm putFriend={this.putFriend} /> */}
       </div>
     )
   }
