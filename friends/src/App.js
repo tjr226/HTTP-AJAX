@@ -28,14 +28,23 @@ class App extends React.Component{
   postFriend = friend => {
     Axios
     .post("http://localhost:5000/friends", friend)
+    .then(res => {
+      // console.log(res, "postFriend");
+      this.setState({ friends: res.data});
+    })
   }
+  
 
   deleteFriend = id => {
     Axios
-    .delete(`http://localhost:5000/friends/:${id}`)
-    // .then(res => console.log(res))
+    .delete(`http://localhost:5000/friends/${id}`)
+    .then(res => {
+      // console.log(res, "deleteFriend")
+      this.setState({ friends: res.data})
+    })
     .catch(err => console.log(err))
   }
+  
 
   render() {
     return (

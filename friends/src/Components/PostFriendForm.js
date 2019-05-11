@@ -13,7 +13,7 @@ class PostFriendForm extends React.Component {
     }
 
     handleChange = e => {
-        console.log(this.state.friendInput);
+        // console.log(this.state.friendInput);
         this.setState({
             friendInput: {
                 ...this.state.friendInput,

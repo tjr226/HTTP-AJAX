@@ -7,24 +7,26 @@ class FriendDetails extends React.Component {
             id: props.friend.id
         }
     }
-    
 
     deleteFriend = e => {
+        // console.log(e, "event");
         e.preventDefault();
-        console.log("delete friend from friend details running")
-        this.props.deleteFriend(this.state.id)
+        let id = `${this.state.id}`
+        // console.log("delete friend from friend details running");
+        // console.log(id);
+        this.props.deleteFriend(id)
     }
 
     render() {
         // console.log("friendDetails")
         // console.log(this)
-        let id = this.props.friend.id;
+        // let id = this.props.friend.id;
         // console.log("friend id");
         // console.log(this.props.friend.id);
         return (
             <div>
                 {this.props.friend.name}, {this.props.friend.age}, {this.props.friend.email}
-                <form onSubmit={this.props.deleteFriend(id)}>
+                <form onSubmit={this.deleteFriend}>
                     <button type="submit">x</button>
                 </form>
             </div>
