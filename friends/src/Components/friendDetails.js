@@ -26,8 +26,9 @@ class FriendDetails extends React.Component {
         return (
             <div>
                 {this.props.friend.name}, {this.props.friend.age}, {this.props.friend.email}
+                
                 <form onSubmit={this.deleteFriend}>
-                    <button type="submit">x</button>
+                    <button type="submit">Delete friend</button>
                 </form>
             </div>
         )
